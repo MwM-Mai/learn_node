@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue3_ts_cms"]=self["webpackChunkvue3_ts_cms"]||[]).push([[467],{6467:function(t,e,n){n.r(e),n.d(e,{default:function(){return l}});var u=n(3396);const c={class:"chat"},s=(0,u._)("h2",null,"chat",-1),r=[s];function a(t,e,n,s,a,h){return(0,u.wg)(),(0,u.iD)("div",c,r)}var h=(0,u.aZ)({name:"chatView",setup(){return{}}}),i=n(89);const f=(0,i.Z)(h,[["render",a]]);var l=f}}]);
+//# sourceMappingURL=467.26923a71.js.map

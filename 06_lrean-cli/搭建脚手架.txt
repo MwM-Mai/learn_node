@@ -1,0 +1,22 @@
+# 一、 定义入口文件
+
+​	执行 npm init 初始化 package.json 文件 并且 定义入口文件	
+
+##### 	1.在入口文件中定义shebang 指令
+
+```
+#!/usr/bin/env node
+
+```
+
+##### 	2.在package.json文件下 配置 bin 属性
+
+```
+  "bin": {
+    "why": "index.js"
+  }
+```
+
+##### 	3. 执行 npm link
+
+##### 4. 安装 commander 库

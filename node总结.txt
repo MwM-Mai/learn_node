@@ -1,0 +1,39 @@
+# 1. npm install 原理
+
+![npm install 原理](C:\Users\86188\Desktop\learn-node\npm install 原理.png)
+
+# 2. Node事件循环(一次事件循环叫做一次Tick)
+
+![EventLoop](C:\Users\86188\Desktop\learn-node\EventLoop.png)
+
+##### 	在Node 的事件循环比浏览器的事件循环更复杂，因为在宏任务、微任务中有分为多个队列
+
+##### 微任务队列：Ticks队列(process.nextTick)和其他微任务队列(Promise.then、queueMicrotask)
+
+##### 宏任务队列：timers队列(setTimeout、setInterval)、IO队列(IO事件，事件循环大部分时间都是停留在这个队列)、check队列(检查队列 setImmediate)以及close队列(close事件)
+
+##### <u>执行顺序</u>：Ticks队列 -> 其他微任务队列 -> timers队列 -> IO队列 -> check队列 -> close队列	
+
+
+
+```
+
+// setTimeout() 函数虽然是0秒执行但是需要 插入到红黑树某个节点上 在从红黑树插入到Timers队列中 这个过程需要时间 有可能是 10ms 15ms
+setTimeout(() => {
+  console.log("setTimeout");
+}, 0);
+
+setImmediate(() => {
+  console.log("setImmediate");
+});
+
+// 问题 setTimeout setImmediate 谁先执行
+
+// 在 main script 代码执行之后会 初始化事件循环 这个过程也需要时间
+// 当初始化时间大于 setTimeout 插入时间时 第一次tick setTimeout  setImmediate
+// 当初始化时间小于 setTimeout 插入时间时 第一次tick setImmediate 第二次tick  setTimeout
+
+// 可能是setTimeout  setImmediate
+// 也可能是setImmediate  setTimeout
+```
+
